@@ -11,12 +11,17 @@ I have split this lab in 3 parts:
 
 I've created a VM machine in the AZURE portal by entering to https://portal.azure.com/ and using my Microsoft credential to access.
 
-![[Screenshot 2024-10-06 at 12.10.22 1.png]]
+![image1](imgs/image1.png)
+
 Also activated the TFA for more security.
-![[Screenshot 2024-10-06 at 12.10.45.png]]
+
+![image2](imgs/image2.png)
+
 Once inside Microsoft Azure, I selected the Virtual Machine icon. On the next page selected **Create >> Azure virtual machine**.
-![[Screenshot 2024-10-06 at 12.15.13.png]]
-![[Screenshot 2024-10-06 at 12.15.28.png]]
+![image3](imgs/image3.png)
+
+![image4](imgs/image4.png)
+
 Once the new configuration windows opens, I started filling out the following fields.
 I did it like follows:
 
@@ -32,77 +37,92 @@ I did it like follows:
 - Select inbound ports: HTTP(80), RDP(3389)
 
 Now selected **Next: Disks >**
-![[Screenshot 2024-10-06 at 12.36.51.png]]
+![image5](imgs/image5.png)
 
 Once in the new page, I selected the option **Networking** and checked again for the **Public inbound ports**, just in case something changed (it should be still HTTP(80) & RDP(3389)).
 
-![[Screenshot 2024-10-06 at 12.37.35.png]]
+![image6](imgs/image6.png)
 
 Then selected **Next: Management >**
 
-On this new page, I selected**Monitoring** and looked for the option **Boot diagnostics**, I selected **Disable** option.
+On this new page, I selected **Monitoring** and looked for the option **Boot diagnostics**, I selected **Disable** option.
 
-![[Screenshot 2024-10-06 at 12.38.11.png]]
+![image7](imgs/image7.png)
 
 Let the other fields as they are per default and clicked on the button (in blue color) **Review + create**.
 
 After the validation, I could see how much the VM will cost in **currency / hr**.
 Clicked on **Create** to proceed.
-![[Screenshot 2024-10-06 at 12.39.41.png]]
+![image8](imgs/image8.png)
 
 **2 - Connect to VM via RDP:**
 
 On this part I will connect to the vm machine using RDP. 
 Once deployment succeeded, I clicked on **Go to resource**.
 
-![[Screenshot 2024-10-06 at 12.41.11.png]]
+![image10](imgs/image10.png)
+
 On the next page, clicked on dropdown list **Connect** and selected **Connect** again.
-![[Screenshot 2024-10-06 at 12.42.22 1.png]]
+
+![image11](imgs/image11.png)
+
 On this page, I kept everything as it is per default in order to connect with the public address over RDP (3389).
 Clicked on **Download RDP File** and opened the downloaded file.
 
-**Note**: In case you are using a MAC like I do, please download the **Windows App** by following the steps explained in this link: https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac
+**Note**: In case you are using a MAC like I do, please download the **Windows App** by following the steps explained in this link: https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac<br>
 Once you have downloaded the app, you will see that the icon of the downloaded RDP file has changed to something like:
 
-![[Screenshot 2024-10-06 at 12.56.06.png]]
+![image13](imgs/image13.png)
 
 I double clicked on it to open the RDP session. It opened a prompt asking for  credentials of the VM.
-![[Screenshot 2024-10-06 at 12.57.22.png]]
+
+![image14](imgs/image14.png)
+
 Also asked for accepting the certificate for the connection.
-![[Screenshot 2024-10-06 at 12.57.29.png]]
+
+![image15](imgs/image15.png)
+
 Once done, I could start enjoying my VM.
-![[Screenshot 2024-10-06 at 13.02.37.png]]
+
+![image20](imgs/image20.png)
 
 **3 - Install Web-Server and access it via Public IP:**
 
 Once inside the VM machine, I opened **Powershell** with admin rights in order to install the Web-Server.
 
-![[Screenshot 2024-10-06 at 13.05.31.png]]
+![image17](imgs/image17.png)
 
 The command used in Powershell:
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-![[Screenshot 2024-10-06 at 13.08.34 1.png]]
+![image18](imgs/image18.png)
+
+I could see the instalation process starting.
+
+![image19](imgs/image19.png)
 
 I was sure all was successfully installed once I saw the following prompt:
 
-![[Screenshot 2024-10-06 at 13.16.35.png]]
+![image21](imgs/image20.png)
+
 To check the Web-Server, I just went back to the overview page in Azure and opened a new browser page using the Public IP assigned to my machine.
 
-![[Screenshot 2024-10-06 at 13.19.43.png]]
+![image22](imgs/image22.png)
 
 By entering the IP in the URL I could see my Web-Server running. :)
 
-![[Screenshot 2024-10-06 at 13.21.04.png]]
+![image23](imgs/image23.png)
+
 Now in order to avoid the machine running after this testing, I just clicked on **Stop**. 
 
-![[Screenshot 2024-10-06 at 13.31.25.png]]
+![image24](imgs/image24.png)
 
 And as a last step I made sure to delete the machine.
 
-![[Screenshot 2024-10-06 at 13.31.58.png]]
+![image26](imgs/image26.png)
+
 Just made a **refresh** to be sure the machine was deleted.
 
-![[Screenshot 2024-10-06 at 13.33.52.png]]
+![image27](imgs/image27.png)
